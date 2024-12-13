@@ -1,6 +1,5 @@
 package com.anshul.learnmicroservices.job.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -43,7 +42,8 @@ public class JobServiceImpl implements JobService {
 	public String updateJob(Job currentjob, Job job) {
 		currentjob.setTitle(job.getTitle());
 		currentjob.setDescription(job.getDescription());
-		JobRepository.save(job);
+		currentjob.setCompany(job.getCompany());
+		jobRepository.save(currentjob);
 		return "updated";
 	}
 

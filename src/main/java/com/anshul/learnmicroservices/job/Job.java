@@ -2,10 +2,15 @@ package com.anshul.learnmicroservices.job;
 
 import java.util.UUID;
 
+import com.anshul.learnmicroservices.company.Company;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity  
@@ -20,8 +25,20 @@ public class Job {
 	private String minSalary;
 	private String maxSalary;
 	private String location;
+	
+	// Many jobs belong to one company
+	@ManyToOne
+	private Company company;
 
-	public Job(UUID id, String title, String description, String minSalary, String maxSalary, String location) {
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public Job(UUID id, String title, String description, String minSalary, String maxSalary, String location, Company company) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -29,6 +46,7 @@ public class Job {
 		this.minSalary = minSalary;
 		this.maxSalary = maxSalary;
 		this.location = location;
+		this.company=company;
 	}
 	
 	public Job() {
