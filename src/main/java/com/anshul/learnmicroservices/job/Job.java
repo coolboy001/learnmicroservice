@@ -1,14 +1,27 @@
 package com.anshul.learnmicroservices.job;
 
+import java.util.UUID;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity  
+@Table(name = "jobs")
 public class Job {
-	private Long id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 	private String title;
 	private String description;
 	private String minSalary;
 	private String maxSalary;
 	private String location;
 
-	public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
+	public Job(UUID id, String title, String description, String minSalary, String maxSalary, String location) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -17,12 +30,16 @@ public class Job {
 		this.maxSalary = maxSalary;
 		this.location = location;
 	}
+	
+	public Job() {
+		
+	}
 
-	public Long getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 

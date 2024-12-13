@@ -3,32 +3,48 @@ package com.anshul.learnmicroservices.job.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.anshul.learnmicroservices.job.Job;
+import com.anshul.learnmicroservices.job.JobRepository;
 import com.anshul.learnmicroservices.job.JobService;
 
 @Service
 public class JobServiceImpl implements JobService {
-
-	private List<Job> jobs = new ArrayList<Job>();
-	private Long nextId = 1L;
+	
+	@Autowired
+	private JobRepository jobRepository;
+	
 
 	@Override
 	public List<Job> findAll() {
-		return jobs;
+		return jobRepository.findAll();
 	}
 
 	@Override
 	public void createJob(Job job) {
-		job.setId(nextId++);
-		jobs.add(job);
+		jobRepository.save(job);
 	}
-	
-	public Optional<Job> getJobById(Long id) {
-		return jobs.stream().
-				filter(i -> i.getId().equals(id)).findFirst();
+
+	public Optional<Job> getJobById(UUID id) {
+		return jobRepository.findById(id);
+	}
+
+	@Override
+	public String deleteJob(Job job) {
+		jobRepository.delete(job);
+		return "Job deleted successfully";
+	}
+
+	@Override
+	public String updateJob(Job currentjob, Job job) {
+		currentjob.setTitle(job.getTitle());
+		currentjob.setDescription(job.getDescription());
+		JobRepository.save(job);
+		return "updated";
 	}
 
 }
