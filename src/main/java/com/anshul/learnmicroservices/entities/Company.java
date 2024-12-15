@@ -1,9 +1,8 @@
-package com.anshul.learnmicroservices.company;
+package com.anshul.learnmicroservices.entities;
 
 import java.util.List;
 import java.util.UUID;
 
-import com.anshul.learnmicroservices.job.Job;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -19,6 +18,14 @@ public class Company {
 	private UUID id;
 	private String name;
 	private String descriptions;
+	@OneToMany(mappedBy = "company")
+	private List<Review> reviews;
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
 	public String getName() {
 		return name;
 	}

@@ -1,4 +1,4 @@
-package com.anshul.learnmicroservices.job.impl;
+package com.anshul.learnmicroservices.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.anshul.learnmicroservices.company.Company;
-import com.anshul.learnmicroservices.company.CompanyRepository;
-import com.anshul.learnmicroservices.company.CompanyService;
+import com.anshul.learnmicroservices.entities.Company;
+import com.anshul.learnmicroservices.repositories.CompanyRepository;
+import com.anshul.learnmicroservices.services.CompanyService;
 
 @Service
 public class CompanyServiceImpls implements CompanyService {

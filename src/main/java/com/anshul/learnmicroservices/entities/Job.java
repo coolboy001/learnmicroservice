@@ -1,8 +1,6 @@
-package com.anshul.learnmicroservices.job;
+package com.anshul.learnmicroservices.entities;
 
 import java.util.UUID;
-
-import com.anshul.learnmicroservices.company.Company;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

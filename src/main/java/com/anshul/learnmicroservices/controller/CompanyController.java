@@ -1,4 +1,4 @@
-package com.anshul.learnmicroservices.company;
+package com.anshul.learnmicroservices.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.anshul.learnmicroservices.entities.Company;
+import com.anshul.learnmicroservices.services.CompanyService;
 
 @RestController
 @RequestMapping("/companies")

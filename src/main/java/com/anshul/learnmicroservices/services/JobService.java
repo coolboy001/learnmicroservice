@@ -1,8 +1,10 @@
-package com.anshul.learnmicroservices.job;
+package com.anshul.learnmicroservices.services;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import com.anshul.learnmicroservices.entities.Job;
 
 public interface JobService {
 

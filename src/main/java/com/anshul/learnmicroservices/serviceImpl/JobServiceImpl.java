@@ -1,4 +1,4 @@
-package com.anshul.learnmicroservices.job.impl;
+package com.anshul.learnmicroservices.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.anshul.learnmicroservices.job.Job;
-import com.anshul.learnmicroservices.job.JobRepository;
-import com.anshul.learnmicroservices.job.JobService;
+import com.anshul.learnmicroservices.entities.Job;
+import com.anshul.learnmicroservices.repositories.JobRepository;
+import com.anshul.learnmicroservices.services.JobService;
 
 @Service
 public class JobServiceImpl implements JobService {

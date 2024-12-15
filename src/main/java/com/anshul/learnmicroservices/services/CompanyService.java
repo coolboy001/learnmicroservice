@@ -1,8 +1,10 @@
-package com.anshul.learnmicroservices.company;
+package com.anshul.learnmicroservices.services;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import com.anshul.learnmicroservices.entities.Company;
 
 
 public interface CompanyService {
