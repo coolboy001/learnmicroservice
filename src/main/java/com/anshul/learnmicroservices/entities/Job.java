@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity  
 @Table(name = "jobs")
@@ -18,6 +19,7 @@ public class Job {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
+	@NotEmpty(message= "Job title can't be blank")
 	private String title;
 	private String description;
 	private String minSalary;

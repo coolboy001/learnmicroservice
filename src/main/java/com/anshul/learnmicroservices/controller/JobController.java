@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anshul.learnmicroservices.entities.Job;
 import com.anshul.learnmicroservices.services.JobService;
 
+import jakarta.validation.Valid;
+
 @RestController
 //@RequestMapping("/jobs")
 public class JobController {
@@ -32,7 +34,7 @@ public class JobController {
 	}
 
 	@PostMapping("/jobs")
-	public ResponseEntity<String> createJob(@RequestBody Job job) {
+	public ResponseEntity<String> createJob(@Valid @RequestBody Job job) {
 		jobService.createJob(job);
 		return new ResponseEntity<>("Job added successfully", HttpStatus.CREATED);
 	}
